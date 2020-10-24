@@ -3,19 +3,23 @@ console.log(
 );
 class Car {
   // Unscalable variant, but with 'price'
-  static getSpecs(car) {
-    return `maxSpeed: ${car.maxSpeed}, speed: ${car.speed}, isOn: ${car.isOn}, distance: ${car.distance}, price: ${car.price}`;
-  }
-  // Scalable variant, but with '_price'
   // static getSpecs(car) {
-  //   let keys = Object.keys(car);
-  //   let specs = "";
-
-  //   for (const key of keys) {
-  //     specs += `${key}: ${car[key]}, `;
-  //   }
-  //   return specs.slice(0, -2);
+  //   return `maxSpeed: ${car.maxSpeed}, speed: ${car.speed}, isOn: ${car.isOn}, distance: ${car.distance}, price: ${car.price}`;
   // }
+  // Scalable variant
+  static getSpecs(car) {
+    let keys = Object.keys(car);
+    let specs = "";
+
+    for (const key of keys) {
+      specs += `${key}: ${car[key]}, `;
+    }
+    return specs
+      .slice(0, -2)
+      .split("")
+      .filter((el) => el !== "_")
+      .join("");
+  }
 
   constructor(car, speed = 0, isOn = false, distance = 0) {
     this.maxSpeed = car.maxSpeed;
