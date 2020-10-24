@@ -6,7 +6,7 @@ class Car {
   static getSpecs(car) {
     return `maxSpeed: ${car.maxSpeed}, speed: ${car.speed}, isOn: ${car.isOn}, distance: ${car.distance}, price: ${car.price}`;
   }
-  // // Scalable variant, but with '_price'
+  // Scalable variant, but with '_price'
   // static getSpecs(car) {
   //   let keys = Object.keys(car);
   //   let specs = "";
@@ -55,9 +55,9 @@ class Car {
     return (this.speed = 0);
   }
   drive(hours) {
-    if (this.isOn) {
-      return (this.distance += this.speed * hours);
-    }
+    // if (this.isOn) {
+    return (this.distance += this.speed * hours);
+    // }
   }
 }
 
